@@ -14,6 +14,9 @@ export class CourseCardComponent implements OnInit {
   courseEmitter = new EventEmitter<Course>();
   constructor() { }
 
+  @Input()
+  cardIndex: number;
+
   ngOnInit(): void {
   }
 
