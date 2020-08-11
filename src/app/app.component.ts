@@ -15,6 +15,7 @@ export class AppComponent {
   ngrxCourse = COURSES[2];
   title = 'Angular core deep dive';
   price = 9.99;
+  rate = 0.67;
 
   onCourseSelected(course: Course) {
     console.log('App component', course);
