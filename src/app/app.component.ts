@@ -11,13 +11,13 @@ import {CourseCardComponent} from './course-card/course-card.component';
 export class AppComponent {
   courses = COURSES;
 
-  @ViewChild('cardRef1')
-  card1: CourseCardComponent;
+  @ViewChild('cardRef1', {read: ElementRef})
+  card1: ElementRef;
 
   @ViewChild('container')
   containerDiv: ElementRef;
 
   onCourseSelected(course: Course) {
-    console.log('App component', this.containerDiv);
+    console.log('App component', this.card1);
   }
 }
