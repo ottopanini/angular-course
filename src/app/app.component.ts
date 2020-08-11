@@ -11,7 +11,7 @@ import {CourseCardComponent} from './course-card/course-card.component';
 export class AppComponent {
   courses = COURSES;
 
-  @ViewChild(CourseCardComponent)
+  @ViewChild('cardRef')
   card: CourseCardComponent;
 
   onCourseSelected(course: Course) {

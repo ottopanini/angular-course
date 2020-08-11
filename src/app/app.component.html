@@ -7,11 +7,8 @@
 </div>
 
 <div class="courses">
-    <course-card (courseSelected)="onCourseSelected($event)"
+    <course-card (courseSelected)="onCourseSelected($event)" #cardRef
                  [course]="courses[0]">
-    </course-card>
-  <course-card (courseSelected)="onCourseSelected($event)"
-               [course]="courses[1]">
     </course-card>
 </div>
 
