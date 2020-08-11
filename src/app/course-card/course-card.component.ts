@@ -24,4 +24,11 @@ export class CourseCardComponent implements OnInit {
     console.log('card component - btn clicked');
     this.courseEmitter.emit(this.course);
   }
+
+  cardClasses() {
+    return {
+      'beginner': this.course.category === 'BEGINNER',
+      'course-card': true
+    };
+  }
 }
