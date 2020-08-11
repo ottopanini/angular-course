@@ -11,14 +11,14 @@ import {CourseCardComponent} from './course-card/course-card.component';
 export class AppComponent implements AfterViewInit {
   courses = COURSES;
 
-  @ViewChildren(CourseCardComponent)
-  cards: QueryList<CourseCardComponent>;
+  @ViewChildren(CourseCardComponent, {read: ElementRef})
+  cards: QueryList<ElementRef>;
 
   onCourseSelected(course: Course) {
   }
 
   ngAfterViewInit(): void {
-    this.cards.changes.subscribe(x => console.log(x));
+    console.log(this.cards);
   }
 
   onCourseEdited() {
