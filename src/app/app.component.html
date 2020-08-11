@@ -6,9 +6,7 @@
 
 </div>
 
-<div class="demo">
-  <div>{{rate | percent}}</div>
-</div>
+{{courses | json}}
 <div class="courses">
     <course-card (courseSelected)="onCourseSelected($event)"
                  [course]="course"
