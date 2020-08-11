@@ -11,10 +11,14 @@ import {CourseCardComponent} from './course-card/course-card.component';
 export class AppComponent {
   courses = COURSES;
 
-  @ViewChild('cardRef')
-  card: CourseCardComponent;
+  @ViewChild('cardRef1')
+  card1: CourseCardComponent;
+
+  @ViewChild('cardRef2')
+  card2: CourseCardComponent;
 
   onCourseSelected(course: Course) {
-    console.log('App component', this.card);
+    console.log('App component', this.card1);
+    console.log('App component', this.card2);
   }
 }
