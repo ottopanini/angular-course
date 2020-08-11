@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {COURSES} from '../db-data';
 import {Course} from './model/course';
+import {CourseCardComponent} from './course-card/course-card.component';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,11 @@ import {Course} from './model/course';
 })
 export class AppComponent {
   courses = COURSES;
-  startDate = new Date(2000, 0, 1);
-  coreCourse = COURSES[0];
-  rxjsCourse = COURSES[1];
-  ngrxCourse = COURSES[2];
-  title = 'Angular core deep dive';
-  price = 9.99;
-  rate = 0.67;
-  course = COURSES[0];
+
+  @ViewChild(CourseCardComponent)
+  card: CourseCardComponent;
 
   onCourseSelected(course: Course) {
-    console.log('App component', course);
+    console.log('App component', this.card);
   }
 }
