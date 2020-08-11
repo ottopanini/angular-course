@@ -5,6 +5,10 @@
          src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 
 </div>
+
+<div class="demo">
+  <div>Start Date:{{startDate | date}}</div>
+</div>
 <div class="courses">
     <course-card (courseSelected)="onCourseSelected($event)"
                  [course]="course"
