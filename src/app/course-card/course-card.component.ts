@@ -30,8 +30,8 @@ export class CourseCardComponent implements OnInit, AfterViewInit, AfterContentI
   @Input()
   cardIndex: number;
 
-  @ContentChildren(CourseImageComponent)
-  images: QueryList<CourseImageComponent>;
+  @ContentChildren(CourseImageComponent, {read: ElementRef})
+  images: QueryList<ElementRef>;
 
   ngOnInit(): void {
   }
