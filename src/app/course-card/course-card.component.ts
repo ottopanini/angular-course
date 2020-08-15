@@ -1,24 +1,24 @@
 import {
-    AfterContentInit,
-    AfterViewInit,
-    Component,
-    ContentChild,
-    ContentChildren,
-    ElementRef,
-    EventEmitter,
-    Input,
-    OnInit,
-    Output, QueryList, TemplateRef,
-    ViewChild
+  AfterContentInit,
+  AfterViewInit,
+  Component,
+  ContentChildren,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  QueryList,
+  ViewEncapsulation
 } from '@angular/core';
-import {COURSES} from '../../db-data';
 import {Course} from '../model/course';
 import {CourseImageComponent} from '../course-image/course-image.component';
 
 @Component({
     selector: 'course-card',
     templateUrl: './course-card.component.html',
-    styleUrls: ['./course-card.component.css']
+    styleUrls: ['./course-card.component.css'],
+    encapsulation: ViewEncapsulation.ShadowDom
 })
 export class CourseCardComponent implements OnInit, AfterViewInit, AfterContentInit {
 
