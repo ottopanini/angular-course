@@ -14,7 +14,7 @@ export class AppComponent implements AfterViewInit {
     courses = COURSES;
 
 
-    @ViewChild(HighlightedDirective)
+    @ViewChild(CourseCardComponent, {read: HighlightedDirective})
     highlighted: HighlightedDirective;
 
     @ViewChildren(CourseCardComponent, {read: ElementRef})
