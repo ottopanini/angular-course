@@ -7,6 +7,7 @@
 
     <ng-content select=".course-image"></ng-content>
     <ng-content select=".course-description"></ng-content>
+    <ng-content></ng-content> <!-- projects missing parts of selected content -->
 
     <ng-container [ngSwitch]="course.category">
       <div class="course-category" >
