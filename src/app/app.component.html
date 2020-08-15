@@ -12,9 +12,7 @@
     <img src="/assets/empty-image.png">
   </ng-template>
 
-  <div *ngTemplateOutlet="blankImage; context: {description: course.description}"></div>
-
-  <div *ngTemplateOutlet="blankImage; context: {description: courses[1].description}"></div>
+  <ng-container *ngTemplateOutlet="blankImage; context: {description: course.description}"></ng-container>
 
   <hr>
   <hr>
