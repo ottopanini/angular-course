@@ -18,8 +18,8 @@ export class CourseCardComponent implements OnInit, AfterViewInit {
   @Input()
   cardIndex: number;
 
-  @ContentChild(CourseImageComponent)
-  image: CourseImageComponent;
+  @ContentChild(CourseImageComponent, {read: ElementRef})
+  image: ElementRef;
 
   ngOnInit(): void {
   }
