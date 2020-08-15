@@ -1,4 +1,4 @@
-<div class="top-menu">
+<div class="top-menu" highlighted>
 
     <img class="logo"
          src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
@@ -11,6 +11,7 @@
 
     <course-card [highlighted]="true"
                  (courseSelected)="onCourseSelected($event)"
+                 (toggleHighlight)="onToggle($event)"
                  [course]="course">
 
         <course-image [src]="course.iconUrl"></course-image>

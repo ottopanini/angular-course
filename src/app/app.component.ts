@@ -29,4 +29,7 @@ export class AppComponent implements AfterViewInit {
 
     }
 
+  onToggle($event: boolean) {
+    console.log($event);
+  }
 }
