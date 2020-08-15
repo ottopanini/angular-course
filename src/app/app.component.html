@@ -12,8 +12,13 @@
       <div class="course-image">
         <img width="300" alt="Angular Logo" *ngIf="course?.iconUrl"
              [src]="course.iconUrl">
+        <div>total lessons: 5</div>
       </div>
-      <div>total lessons: 5</div>
+
+      <div class="course-description">
+        {{course.longDescription}}
+      </div>
+      
     </course-card>
 
   <course-card (courseSelected)="onCourseSelected($event)"
