@@ -34,7 +34,7 @@
   background: lightcyan;
 }
 
-::ng-deep .salmon-theme .course-card {
+:host-context(.salmon-theme) .course-card {
   background: lightsalmon;
 }
 
