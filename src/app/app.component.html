@@ -6,12 +6,18 @@
 
 </div>
 
-<button (click)="onCourseEdited()">Edit Courses</button>
-
-<div class="courses" #container>
-    <course-card (courseSelected)="onCourseSelected($event)" *ngFor="let course of courses"
-                 [course]="courses[0]">
+<div class="courses" *ngIf="courses[0] as course">
+    <course-card (courseSelected)="onCourseSelected($event)"
+                 [course]="course">
+      <img width="300" alt="Angular Logo" *ngIf="course?.iconUrl"
+           [src]="course.iconUrl">
+      <div>total lessons: 5</div>
     </course-card>
+
+  <course-card (courseSelected)="onCourseSelected($event)"
+               [course]="courses[1]">
+    <div>total lessons: 10</div>
+  </course-card>
 </div>
 
 
