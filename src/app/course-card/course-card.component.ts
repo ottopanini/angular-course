@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ContentChild, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Course} from '../model/course';
+import {CourseImageComponent} from '../course-image/course-image.component';
 
 @Component({
   selector: 'course-card',
@@ -17,8 +18,8 @@ export class CourseCardComponent implements OnInit, AfterViewInit {
   @Input()
   cardIndex: number;
 
-  @ContentChild('courseImage')
-  image: ElementRef;
+  @ContentChild(CourseImageComponent)
+  image: CourseImageComponent;
 
   ngOnInit(): void {
   }
