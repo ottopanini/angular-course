@@ -34,6 +34,9 @@
   background: lightcyan;
 }
 
+::ng-deep .salmon-theme .course-card {
+  background: lightsalmon;
+}
 
 .course-card .course-title {
   font-size: 27px;
