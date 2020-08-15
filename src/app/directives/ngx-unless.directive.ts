@@ -1,10 +1,12 @@
-import { Directive } from '@angular/core';
+import {Directive, ElementRef, TemplateRef, ViewContainerRef} from '@angular/core';
 
 @Directive({
   selector: '[ngxUnless]'
 })
 export class NgxUnlessDirective {
 
-  constructor() { }
+  constructor(private template: TemplateRef<any>,
+              private viewContainer: ViewContainerRef) {
+  }
 
 }
