@@ -13,8 +13,9 @@
                  (toggleHighlight)="onToggle($event)"
                  [course]="course">
 
-      <course-image [src]="course.iconUrl"
-                    *ngxUnless="!course.iconUrl"></course-image>
+      <ng-template [ngxUnless]="!course.iconUrl">
+        <course-image [src]="course.iconUrl"></course-image>
+      </ng-template>
 
       <div class="course-description" (dblclick)="highLighter.toggle()">
         {{ course.longDescription }}
