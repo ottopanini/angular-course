@@ -6,18 +6,25 @@ import {HighlightedDirective} from './directives/highlighted.directive';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {CoursesService} from './services/courses.service';
+import {APP_CONFIG, AppConfig, CONFIG_TOKEN} from './config';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  providers: [
+    {provide: CONFIG_TOKEN, useFactory: () => APP_CONFIG}
+  ]
 })
 export class AppComponent implements OnInit {
 
   courses$: Observable<Course[]>;
 
-  constructor(private coursesService: CoursesService) {
+  constructor(private coursesService: CoursesService,
+              @Inject(CONFIG_TOKEN) private config: AppConfig) {
     console.log('root component' + this.coursesService.id);
+
+    console.log(config);
   }
 
   ngOnInit() {
