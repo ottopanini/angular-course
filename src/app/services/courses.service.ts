@@ -6,8 +6,7 @@ import {Course} from '../model/course';
 let counter = 0;
 
 @Injectable({
-  providedIn: 'root',
-  useClass: CoursesService
+  providedIn: 'root'
 })
 export class CoursesService {
 
