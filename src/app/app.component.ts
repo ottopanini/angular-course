@@ -13,7 +13,7 @@ import {APP_CONFIG, AppConfig, CONFIG_TOKEN} from './config';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [
-    {provide: CONFIG_TOKEN, useFactory: () => APP_CONFIG}
+    {provide: CONFIG_TOKEN, useValue: APP_CONFIG}
   ]
 })
 export class AppComponent implements OnInit {
