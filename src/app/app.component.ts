@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   courses$: Observable<Course[]>;
 
   constructor(private coursesService: CoursesService,
-              @Inject(CONFIG_TOKEN) private config: AppConfig) {
+              @Inject(CONFIG_TOKEN) private config: AppConfig) { // Inject decorator because interface
     console.log('root component' + this.coursesService.id);
 
     console.log(config);
