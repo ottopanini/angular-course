@@ -5,9 +5,7 @@ import {Course} from '../model/course';
 
 let counter = 0;
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CoursesService {
 
   id: number;
