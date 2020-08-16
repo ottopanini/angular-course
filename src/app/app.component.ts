@@ -12,10 +12,7 @@ import {CoursesService} from './services/courses.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [
-    {
-      provide: CoursesService,
-      useClass: CoursesService,
-    }
+    CoursesService
   ]
 })
 export class AppComponent implements OnInit {
