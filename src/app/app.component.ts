@@ -13,6 +13,7 @@ import {AppConfig, CONFIG_TOKEN} from './config';
 export class AppComponent implements OnInit, DoCheck {
 
   courses: Course[];
+  private loaded: boolean;
 
   constructor(private coursesService: CoursesService,
               @Inject(CONFIG_TOKEN) private config: AppConfig,
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit, DoCheck {
   ngOnInit() {
     this.coursesService.loadCourses().subscribe(courses => {
       this.courses = courses;
+      this.loaded = true;
     });
   }
 
@@ -36,6 +38,12 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck(): void {
-    this.cd.markForCheck();
+    console.log('ngDoCheck');
+
+    if (this.loaded) {
+      console.log('checks...');
+      this.cd.markForCheck();
+      this.loaded = undefined;
+    }
   }
 }
