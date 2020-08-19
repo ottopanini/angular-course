@@ -12,7 +12,7 @@ import {AppConfig, CONFIG_TOKEN} from './config';
 })
 export class AppComponent implements OnInit {
 
-  courses$: Observable<Course[]>;
+  courses: Course[];
 
   constructor(private coursesService: CoursesService,
               @Inject(CONFIG_TOKEN) private config: AppConfig) { // Inject decorator because interface
@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.courses$ = this.coursesService.loadCourses();
+    this.coursesService.loadCourses().subscribe(courses => this.courses = courses);
   }
 
   save(course: Course) {
