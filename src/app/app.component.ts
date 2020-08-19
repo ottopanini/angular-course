@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {Course} from './model/course';
 import {Observable} from 'rxjs';
 import {CoursesService} from './services/courses.service';
@@ -8,26 +8,17 @@ import {AppConfig, CONFIG_TOKEN} from './config';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit, DoCheck {
+export class AppComponent implements OnInit {
 
   courses: Course[];
-  private loaded: boolean;
 
   constructor(private coursesService: CoursesService,
-              @Inject(CONFIG_TOKEN) private config: AppConfig,
-              private cd: ChangeDetectorRef) { // Inject decorator because interface
-    console.log('root component' + this.coursesService.id);
-
-    console.log(config);
+              @Inject(CONFIG_TOKEN) private config: AppConfig) { // Inject decorator because interface
   }
 
   ngOnInit() {
-    this.coursesService.loadCourses().subscribe(courses => {
-      this.courses = courses;
-      this.loaded = true;
-    });
+    this.coursesService.loadCourses().subscribe(courses => this.courses = courses);
   }
 
   save(course: Course) {
@@ -35,15 +26,5 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   onEditCourse() {
-  }
-
-  ngDoCheck(): void {
-    console.log('ngDoCheck');
-
-    if (this.loaded) {
-      console.log('checks...');
-      this.cd.markForCheck();
-      this.loaded = undefined;
-    }
   }
 }
