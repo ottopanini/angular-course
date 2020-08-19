@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, OnInit} from '@angular/core';
 import {Course} from './model/course';
 import {Observable} from 'rxjs';
 import {CoursesService} from './services/courses.service';
@@ -10,7 +10,7 @@ import {AppConfig, CONFIG_TOKEN} from './config';
   styleUrls: ['./app.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, DoCheck {
 
   courses: Course[];
 
@@ -25,7 +25,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.coursesService.loadCourses().subscribe(courses => {
       this.courses = courses;
-      this.cd.markForCheck();
     });
   }
 
@@ -34,5 +33,9 @@ export class AppComponent implements OnInit {
   }
 
   onEditCourse() {
+  }
+
+  ngDoCheck(): void {
+    this.cd.markForCheck();
   }
 }
