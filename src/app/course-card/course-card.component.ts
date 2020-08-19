@@ -22,7 +22,7 @@ export class CourseCardComponent implements OnInit {
     courseEmitter = new EventEmitter<Course>();
 
 
-    constructor(@SkipSelf() private coursesService: CoursesService) {
+    constructor(private coursesService: CoursesService) {
 
     }
 
@@ -37,7 +37,7 @@ export class CourseCardComponent implements OnInit {
 
     }
 
-
-
-
+  onTitleChanged(newTitle: string) {
+    this.course.description = newTitle;
+  }
 }
