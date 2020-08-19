@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
 import {Course} from './model/course';
 import {Observable} from 'rxjs';
 import {CoursesService} from './services/courses.service';
@@ -15,14 +15,18 @@ export class AppComponent implements OnInit {
   courses: Course[];
 
   constructor(private coursesService: CoursesService,
-              @Inject(CONFIG_TOKEN) private config: AppConfig) { // Inject decorator because interface
+              @Inject(CONFIG_TOKEN) private config: AppConfig,
+              private cd: ChangeDetectorRef) { // Inject decorator because interface
     console.log('root component' + this.coursesService.id);
 
     console.log(config);
   }
 
   ngOnInit() {
-    this.coursesService.loadCourses().subscribe(courses => this.courses = courses);
+    this.coursesService.loadCourses().subscribe(courses => {
+      this.courses = courses;
+      this.cd.markForCheck();
+    });
   }
 
   save(course: Course) {
