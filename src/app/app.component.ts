@@ -1,21 +1,16 @@
-import {AfterViewInit, Component, ElementRef, Inject, InjectionToken, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
-import {COURSES} from '../db-data';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import {Course} from './model/course';
-import {CourseCardComponent} from './course-card/course-card.component';
-import {HighlightedDirective} from './directives/highlighted.directive';
 import {Observable} from 'rxjs';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {CoursesService} from './services/courses.service';
-import {APP_CONFIG, AppConfig, CONFIG_TOKEN} from './config';
+import {AppConfig, CONFIG_TOKEN} from './config';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
-
-  courses = COURSES;
 
   courses$: Observable<Course[]>;
 
@@ -27,6 +22,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.courses$ = this.coursesService.loadCourses();
   }
 
   save(course: Course) {
@@ -34,9 +30,5 @@ export class AppComponent implements OnInit {
   }
 
   onEditCourse() {
-    const course = this.courses[0];
-    const newCourse: any = {...course};
-    newCourse.description = 'New Value';
-    this.courses[0] = newCourse;
   }
 }
