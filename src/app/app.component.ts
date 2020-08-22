@@ -26,6 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   onEditCourse() {
-    this.courses = [undefined];
+    this.courses[0].description = 'ngOnChanges';
   }
 }

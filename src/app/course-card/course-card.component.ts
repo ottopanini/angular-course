@@ -1,4 +1,4 @@
-import {Attribute, ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Attribute, ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Course} from '../model/course';
 import {CoursesService} from '../services/courses.service';
 
@@ -8,38 +8,40 @@ import {CoursesService} from '../services/courses.service';
   styleUrls: ['./course-card.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CourseCardComponent implements OnInit, OnDestroy {
+export class CourseCardComponent implements OnInit, OnDestroy, OnChanges {
 
-    @Input()
-    course: Course;
+  @Input()
+  course: Course;
 
-    @Input()
-    cardIndex: number;
+  @Input()
+  cardIndex: number;
 
-    @Output('courseChanged')
-    courseEmitter = new EventEmitter<Course>();
+  @Output('courseChanged')
+  courseEmitter = new EventEmitter<Course>();
 
+  constructor(private coursesService: CoursesService, @Attribute('type') private type: string) {
+    console.log('constructor', this.course);
+  }
 
-    constructor(private coursesService: CoursesService, @Attribute('type') private type: string) {
-      console.log('constructor', this.course);
-    }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('ngOnChanges', changes);
+  }
 
+  ngOnInit() {
+    console.log('ngOnInit', this.course);
+  }
 
-    ngOnInit() {
-      console.log('ngOnInit', this.course);
-    }
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy');
+  }
 
-    ngOnDestroy(): void {
-      console.log('ngOnDestroy');
-    }
+  onSaveClicked(description: string) {
 
-    onSaveClicked(description: string) {
+    this.courseEmitter.emit({...this.course, description});
 
-        this.courseEmitter.emit({...this.course, description});
+  }
 
-    }
-
-    onTitleChanged(newTitle: string) {
-      this.course.description = newTitle;
-    }
+  onTitleChanged(newTitle: string) {
+    this.course.description = newTitle;
+  }
 }
