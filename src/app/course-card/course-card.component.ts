@@ -1,4 +1,16 @@
-import {Attribute, ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
+import {
+  AfterContentChecked,
+  Attribute,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 import {Course} from '../model/course';
 import {CoursesService} from '../services/courses.service';
 
@@ -8,7 +20,7 @@ import {CoursesService} from '../services/courses.service';
   styleUrls: ['./course-card.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CourseCardComponent implements OnInit, OnDestroy, OnChanges {
+export class CourseCardComponent implements OnInit, OnDestroy, OnChanges, AfterContentChecked {
 
   @Input()
   course: Course;
@@ -21,6 +33,13 @@ export class CourseCardComponent implements OnInit, OnDestroy, OnChanges {
 
   constructor(private coursesService: CoursesService, @Attribute('type') private type: string) {
     console.log('constructor', this.course);
+  }
+
+  // don't change properties of the content part
+  ngAfterContentChecked(): void {
+    console.log('ngAfterContentChecked');
+
+    this.course.description = 'ngAfterContentChecked';
   }
 
   ngOnChanges(changes: SimpleChanges): void {
