@@ -1,5 +1,5 @@
 import {
-  AfterContentChecked,
+  AfterContentChecked, AfterViewChecked,
   Attribute,
   ChangeDetectionStrategy,
   Component,
@@ -20,7 +20,7 @@ import {CoursesService} from '../services/courses.service';
   styleUrls: ['./course-card.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CourseCardComponent implements OnInit, OnDestroy, OnChanges, AfterContentChecked {
+export class CourseCardComponent implements OnInit, OnDestroy, OnChanges, AfterContentChecked, AfterViewChecked {
 
   @Input()
   course: Course;
@@ -33,6 +33,11 @@ export class CourseCardComponent implements OnInit, OnDestroy, OnChanges, AfterC
 
   constructor(private coursesService: CoursesService, @Attribute('type') private type: string) {
     console.log('constructor', this.course);
+  }
+
+  // don't change properties of the view part but common dom ops like scrolling to bottom of list or something like that
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked');
   }
 
   // don't change properties of the content part
