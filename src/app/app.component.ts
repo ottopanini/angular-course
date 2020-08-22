@@ -1,7 +1,6 @@
-import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Course} from './model/course';
-import {Observable} from 'rxjs';
-import {CoursesService} from './services/courses.service';
+import {CoursesService} from './courses/courses.service';
 import {AppConfig, CONFIG_TOKEN} from './config';
 import {COURSES} from '../db-data';
 
