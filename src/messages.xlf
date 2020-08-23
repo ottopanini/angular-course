@@ -9,11 +9,18 @@
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="c88d307830d874d2640b0afb75349e4382d81505" datatype="html">
+        <source>{VAR_PLURAL, plural, =0 {No courses available.} =1 {One course available.} other {A total of <x id="INTERPOLATION" equiv-text="{{coursesTotal}}"/> courses are available.} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/app.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="welcomeMessage" datatype="html">
         <source>Welcome to the Angular Core Course</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
-          <context context-type="linenumber">15</context>
+          <context context-type="linenumber">18</context>
         </context-group>
         <note priority="1" from="description">Greet the user a greeting at the beginning of the course.</note>
         <note priority="1" from="meaning">welcome message.</note>
