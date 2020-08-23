@@ -9,7 +9,7 @@
           <context context-type="linenumber">10</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="0b1871df958513f19184e04a44c14cb3fc272afe" datatype="html">
+      <trans-unit id="welcomeMessage" datatype="html">
         <source>Welcome to the Angular Core Course</source>
         <context-group purpose="location">
           <context context-type="sourcefile">app/app.component.html</context>
