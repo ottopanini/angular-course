@@ -7,11 +7,12 @@
 
 <div>
   <div class="demo">
-    <button (click)="onEditCourse()">Edit Course</button>
+    <button (click)="onEditCourse()" i18n>Edit Course</button>
   </div>
 
   <div class="courses">
 
+    <h4 i18n="welcome message|Greet the user a greeting at the beginning of the course">Welcome to the Angular Core Course</h4>
     <course-card *ngFor="let course of courses | filterByCategory: 'BEGINNER'" (courseChanged)="save($event)"
                  type="beginner"
                  [course]="course">
