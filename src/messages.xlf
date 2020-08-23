@@ -2,6 +2,25 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en-US" datatype="plaintext" original="ng2.template">
     <body>
+      <trans-unit id="5e5954a58d23388351ba0455424950cc1addbc4e" datatype="html">
+        <source>
+
+    <x id="ICU" equiv-text="{
+      course.category, select, BEGINNER {...} INTERMEDIATE {...} ADVANCED {...}}"/>
+
+  </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course-card/course-card.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a660ff0e6d26e898ac06dc7352eb7614adc98b3b" datatype="html">
+        <source>{VAR_SELECT, select, BEGINNER {Beginner} INTERMEDIATE {Intermediate} ADVANCED {Advanced} }</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/courses/course-card/course-card.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="756b2b2744938130877e47fd8e697024cb532092" datatype="html">
         <source>Edit Course</source>
         <context-group purpose="location">
